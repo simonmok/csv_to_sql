@@ -58,5 +58,5 @@ for key in key_1.intersection(key_2):
 	if (values_1 != values_2):
 		values = ["%s = '%s'" % (column, value_2) for column, value_1, value_2 in zip(header, values_1, values_2) if value_1 != value_2]
 		condition = ' AND '.join(['%s = %s' % (column, value) for column, value in zip(primary_key_names, key)])
-		sql = 'UPDATE %s SET %s WHERE %s;' % (table_name, ' AND '.join(values), condition)
+		sql = 'UPDATE %s SET %s WHERE %s;' % (table_name, ', '.join(values), condition)
 		print(sql)
